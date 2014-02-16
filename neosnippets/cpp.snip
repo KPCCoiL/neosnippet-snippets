@@ -84,16 +84,16 @@ snippet     dynamic_cast
 abbr        dynamic_cast<>()
     dynamic_cast<${1}>(${2})${0}
 
-snippet     helloworld
-abbr        #include<iostream> int main...
-    #include <iostream>
-
-    int main(int argc, char const* argv[])
-    {
-        std::cout << "hello, world!" << std::endl;
-        return 0;
-    }
-
-snippet     p
+snippet     cout
 options     head
-  std::cout << ${0:TARGET} << std::endl;
+  cout << ${0:TARGET} << ::endl;
+
+snippet     ifstream
+abbr        ifstream("")
+options     head
+    ifstream ifs("${1:filename}")
+    
+snippet     ofstream
+abbr ofstream("")
+options     head
+    ofstram ofs("${1:filename}")
