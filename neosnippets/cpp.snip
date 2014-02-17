@@ -86,7 +86,7 @@ abbr        dynamic_cast<>()
 
 snippet     cout
 options     head
-  cout << ${0:TARGET} << ::endl;
+  cout << ${0:TARGET} << endl;
 
 snippet     ifstream
 abbr        ifstream("")
@@ -97,3 +97,32 @@ snippet     ofstream
 abbr ofstream("")
 options     head
     ofstram ofs("${1:filename}")
+    
+#container libs
+
+snippet     vector
+abbr        vector<>
+    vector<{$1:type}>
+    
+snippet     queue
+abbr        queue<>
+    queue<{$1:type}>
+
+snippet     map
+abbr        map<>
+    vector<{$1:type1},{$2:type2}>
+    
+snippet     stack
+abbr        stack<>
+    stack<{$1:type}>
+    
+#C++11 features
+
+snippet     unordered_map
+alias       hash
+abbr        unordered_map<>
+    unordered<{$1:type}>
+    
+snippet     tuple
+abbr        tuple<>
+    tuple<{$1:type}>
