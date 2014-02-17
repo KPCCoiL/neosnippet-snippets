@@ -102,27 +102,27 @@ options     head
 
 snippet     vector
 abbr        vector<>
-    vector<{$1:type}>
+    vector<${1:type}>
     
 snippet     queue
 abbr        queue<>
-    queue<{$1:type}>
+    queue<${1:type}>
 
 snippet     map
 abbr        map<>
-    vector<{$1:type1},{$2:type2}>
+    vector<${1:type1},${2:type2}>
     
 snippet     stack
 abbr        stack<>
-    stack<{$1:type}>
+    stack<${1:type}>
     
 #C++11 features
 
 snippet     unordered_map
 alias       hash
 abbr        unordered_map<>
-    unordered<{$1:type}>
+    unordered<${1:type}>
     
 snippet     tuple
 abbr        tuple<>
-    tuple<{$1:type}>
+    tuple<${1:type}>
