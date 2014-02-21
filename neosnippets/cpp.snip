@@ -116,12 +116,28 @@ snippet     stack
 abbr        stack<>
     stack<${1:type}>
     
+snippet     deque
+abbr        deque<>
+    deque<${1:type}>
+
+snippet     list
+abbr        list<>
+    list<${1:type}>
+
+snippet     stack
+abbr        stack<>
+    stack<${1:type}>
+
+snippet     multimap
+abbr        multimap<>
+    multimap<${1:type}>
+
 #C++11 features
 
 snippet     unordered_map
 alias       hash
 abbr        unordered_map<>
-    unordered<${1:type}>
+    unorderedap<${1:type},${2:type}>
     
 snippet     tuple
 abbr        tuple<>
