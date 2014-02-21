@@ -31,7 +31,7 @@ abbr        for () {}
 
 snippet     for_iterator
 abbr        for (v=r.begin();...) {}
-    for (${1} = ${2}.begin(); $1 < $2.end(); $1++) {
+    for (${1} = ${2}.begin(); $1 < $2.end(); ++$1) {
         ${0:TARGET}
     }
 
