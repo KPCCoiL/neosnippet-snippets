@@ -88,15 +88,19 @@ snippet     cout
 options     head
   cout << ${0:TARGET} << endl;
 
+snippet     puts
+abbr        puts()
+  puts(${0:TARGET})
+
 snippet     ifstream
-abbr        ifstream("")
+abbr        ifstream()
 options     head
-    ifstream ifs("${1:filename}")
+    ifstream ifs(${1:filename})
     
 snippet     ofstream
-abbr ofstream("")
+abbr ofstream()
 options     head
-    ofstram ofs("${1:filename}")
+    ofstram ofs(${1:filename})
     
 #container libs
 
@@ -141,7 +145,7 @@ abbr        multimap<>
 snippet     unordered_map
 alias       hash
 abbr        unordered_map<>
-    unorderedap<${1:type},${2:type}>
+    unordered_map<${1:type},${2:type}>
     
 snippet     tuple
 abbr        tuple<>
