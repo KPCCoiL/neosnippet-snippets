@@ -41,7 +41,7 @@ abbr        try catch
 # range based for ( C++11 feature )
 snippet     for_CPP11
 abbr        for (:) {}
-    for (${1:auto&& }${2:var} : ${3:container}) {
+    for (${1:auto&& } ${2:var} : ${3:container}) {
         ${0:TARGET}
     }
 
@@ -154,3 +154,31 @@ abbr        unordered_map<>
 snippet     tuple
 abbr        tuple<>
     tuple<${1:type}>
+
+#macros for competive programming
+
+snippet     memset
+abbr        memset()
+    memset(${1},${2},sizeof $1)
+    
+snippet     vector<vector<int>>
+abbr        vector<vector<int>>
+alias       vvi
+    vector<vector<int>>
+    
+snippet     dxdy
+abbr        int dx[]={},dy[]={}
+    int dx[]={0,-1,1,0},dy[]={1,0,0,-1}
+    
+snippet     push_back
+alias       pb
+abbr        push_back()
+    push_back(${1})
+    
+snippet     push
+abbr        push()
+    push(${1})
+    
+snippet     count
+abbr        count()
+    count(${1})
