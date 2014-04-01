@@ -151,9 +151,19 @@ alias       hash
 abbr        unordered_map<>
     unordered_map<${1:type},${2:type}>
     
+snippet     array
+abbr        array<>
+    array<${1:type},${2:size}>
+    
 snippet     tuple
 abbr        tuple<>
     tuple<${1:type}>
+   
+snippet     emplace
+    emplace(${1})
+    
+snippet     emplace_back
+    emplace_back(${1})
 
 #macros for competive programming
 
@@ -178,7 +188,7 @@ abbr        push_back()
 snippet     push
 abbr        push()
     push(${1})
-    
-snippet     count
-abbr        count()
-    count(${1})
+
+snippet     all
+abbr        a.begin(),a.end()
+    ${1:container}.begin(),$1.end()
