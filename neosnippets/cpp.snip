@@ -44,6 +44,10 @@ abbr        for (:) {}
     for (${1:auto&& } ${2:var} : ${3:container}) {
         ${0:TARGET}
     }
+    
+snippet     for_CPP11_2
+abbr        for (:)
+    for (${1:auto&& } ${2:var} : ${3:container}) ${0:TARGET}
 
 # lambda expression ( C++11 feature )
 snippet     lambda
@@ -169,7 +173,7 @@ snippet     emplace_back
 
 snippet     memset
 abbr        memset()
-    memset(${1},${2},sizeof $1)
+    memset(${1},${2},sizeof $1)${0}
     
 snippet     vector<vector<int>>
 abbr        vector<vector<int>>
@@ -178,7 +182,7 @@ alias       vvi
     
 snippet     dxdy
 abbr        int dx[]={},dy[]={}
-    int dx[]={0,-1,1,0},dy[]={1,0,0,-1}
+    constexpr int dx[]={0,-1,1,0},dy[]={1,0,0,-1}
     
 snippet     push_back
 alias       pb
