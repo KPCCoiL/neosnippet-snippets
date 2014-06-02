@@ -164,9 +164,11 @@ abbr        tuple<>
     tuple<${1:type}>
    
 snippet     emplace
+options     word
     emplace(${1})
     
 snippet     emplace_back
+options     word
     emplace_back(${1})
 
 #macros for competive programming
@@ -181,18 +183,21 @@ alias       vvi
     vector<vector<int>>
     
 snippet     dxdy
-abbr        int dx[]={},dy[]={}
+abbr        dx[]={},dy[]={}
     constexpr int dx[]={0,-1,1,0},dy[]={1,0,0,-1}
     
 snippet     push_back
+options     word
 alias       pb
 abbr        push_back()
     push_back(${1})
     
 snippet     push
+options     word
 abbr        push()
     push(${1})
 
 snippet     all
+options     word
 abbr        a.begin(),a.end()
     ${1:container}.begin(),$1.end()${0}
