@@ -109,59 +109,76 @@ options     head
 #container libs
 
 snippet     vector
+options     word
 abbr        vector<>
-    vector<${1:type}>
+    vector<${1:type}>${0}
     
 snippet     queue
+options     word
 abbr        queue<>
-    queue<${1:type}>
+    queue<${1:type}>${0}
 
 snippet     map
+options     word
 abbr        map<>
-    map<${1:type1},${2:type2}>
+    map<${1:type1},${2:type2}>${0}
     
 snippet     stack
+options     word
 abbr        stack<>
-    stack<${1:type}>
+    stack<${1:type}>${0}
     
 snippet     deque
+options     word
 abbr        deque<>
-    deque<${1:type}>
+    deque<${1:type}>${0}
 
 snippet     list
+options     word
 abbr        list<>
-    list<${1:type}>
+    list<${1:type}>${0}
 
 snippet     multiset
+options     word
 abbr        multiset<>
-    multiset<${1:type}>
+    multiset<${1:type}>${0}
 
 snippet     set
+options     word
 abbr        set<>
-    set<${1:type}>
+    set<${1:type}>${0}
 
 snippet     multimap
+options     word
 abbr        multimap<>
-    multimap<${1:type}>
+    multimap<${1:type}>${0}
 
 snippet     bitset
+options     word
 abbr        bitset<>
-    bitset<${1:size}>
+    bitset<${1:size}>${0}
 
 #C++11 features
 
 snippet     unordered_map
+options     word
 alias       hash
 abbr        unordered_map<>
-    unordered_map<${1:type},${2:type}>
+    unordered_map<${1:type},${2:type}>${0}
     
 snippet     array
+options     word
 abbr        array<>
-    array<${1:type},${2:size}>
+    array<${1:type},${2:size}>${0}
+    
+snippet     forward_list
+options     head
+abbr        forward_list<>
+    forward_list<${1:type}>${0}
     
 snippet     tuple
 abbr        tuple<>
-    tuple<${1:type}>
+    tuple<${1:type}>${0}
    
 snippet     emplace
 options     word
