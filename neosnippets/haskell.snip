@@ -30,3 +30,15 @@ snippet     instance
 options     head
   instance ${1:Class} ${2:Type} where
     ${3:function} ${4:self} = ${0:TARGET}
+
+snippet	    templatehaskell
+abbr	    TH
+	{-# LANGUAGE TemplateHaskell #-}
+	
+snippet	    if
+abbr	    if then else
+	if ${1} then ${2} else ${0}
+	
+snippet     spilitRead
+abbr 	    map read.words <$> getLine
+	map read . words <$> getLine
