@@ -8,10 +8,20 @@ alias   #inc, #include
 snippet inc2
 alias   #inc2, #include2
     #include "${1}"${0}
+    
+snippet incall
+    #include<bits/stdc++.h>
 
 snippet     template
-abbr        template <T>
-    template<typename ${1:T}> 
+abbr        template <>
+    template<${1:Param}>
+    
+snippet     metafunc
+abbr        template<>struct{}
+    template<${1:Param}>
+    struct ${2:Name} {
+        static const ${3:Val}
+    };
 
 snippet     class
 abbr        class {}
@@ -157,6 +167,15 @@ snippet     bitset
 options     word
 abbr        bitset<>
     bitset<${1:size}>${0}
+    
+snippet     priority_queue
+options     word
+abbr        priority_queue<>
+    priority_queue<${1:type}>${0}
+    
+snippet     pque2
+abbr        priority_queue<T,vector<T>,greater<T>>
+    priority_queue<${1:type}, vector<$1>, greater<$1>>${0}
 
 #C++11 features
 
