@@ -209,26 +209,26 @@ abbr        tuple<>
    
 snippet     emplace
 options     word
-    emplace(${1})
+    emplace(${1})${0}
     
 snippet     emplace_back
 options     word
-    emplace_back(${1})
+    emplace_back(${1})${0}
 
 #macros for competitive programming
 
 snippet     memset
 abbr        memset()
-    memset(${1},${2},sizeof $1)${0}
+    memset(${1},${2},sizeof $1);${0}
     
 snippet     debug
-    cout << "${1:var}" << " = " << $1 << endl;
+    cout << "${1:var}" << " = " << $1 << endl;${0}
     
 snippet     prArr
 abbr        for(:)cout<<i<<'';
     for (auto i : ${1:container})
         cout << i << ' ';
-    cout << endl;
+    cout << endl;${0}
     
 snippet     fastIO
 alias       ios_base
@@ -242,7 +242,7 @@ alias       vvi
     
 snippet     dxdy
 abbr        dx[]={},dy[]={}
-    constexpr int dx[]={0,-1,1,0},dy[]={1,0,0,-1}
+    constexpr int dx[]={0,-1,1,0},dy[]={1,0,0,-1};
     
 snippet     push_back
 options     word
