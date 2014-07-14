@@ -5,3 +5,13 @@ options     head
                 for(int i = 0; i < $1; i++)
                         for(int j = 0; j < $1; j++)
                                 ${2:Distance}[i][j] = min($2[i][j],$2[i][k]+$2[k][j]);
+        ${0}
+        
+snippet     bfs
+abbr        while()...
+options     head
+        queue<${1}> que;
+        while(!que.empty()) {
+                auto new = que.front(); que.pop();
+                ${2:body}
+        }
