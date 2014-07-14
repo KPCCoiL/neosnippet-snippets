@@ -53,13 +53,13 @@ abbr        try catch
 # range based for ( C++11 feature )
 snippet     for_CPP11
 abbr        for (:) {}
-    for (${1:auto&& } ${2:var} : ${3:container}) {
+    for (auto& ${1:var} : ${2:container}) {
         ${0:TARGET}
     }
     
 snippet     for_CPP11_2
 abbr        for (:)
-    for (${1:auto&& } ${2:var} : ${3:container}) ${0:TARGET}
+    for (auto& ${1:var} : ${2:container}) ${0:TARGET}
 
 # lambda expression ( C++11 feature )
 snippet     lambda
@@ -172,6 +172,7 @@ abbr        bitset<>
     
 snippet     priority_queue
 options     word
+alias       pque
 abbr        priority_queue<>
     priority_queue<${1:type}>${0}
     
@@ -187,6 +188,11 @@ alias       hash
 abbr        unordered_map<>
     unordered_map<${1:type},${2:type}>${0}
     
+snippet     unordered_set
+options     word
+abbr        unordered_set<>
+    unordered_set<${1:type}>${0}
+
 snippet     array
 options     word
 abbr        array<>
@@ -217,6 +223,7 @@ abbr        memset()
     
 snippet     vector<vector<int>>
 abbr        vector<vector<int>>
+options     word
 alias       vvi
     vector<vector<int>>
     
