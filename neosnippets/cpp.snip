@@ -215,11 +215,24 @@ snippet     emplace_back
 options     word
     emplace_back(${1})
 
-#macros for competive programming
+#macros for competitive programming
 
 snippet     memset
 abbr        memset()
     memset(${1},${2},sizeof $1)${0}
+    
+sinppet     debug
+    cout << "${1:var}" << " = " << $1 << endl;
+    
+snippet     prArr
+abbr        for(:)cout<<i<<'';
+    for (auto i : ${1:container})
+        cout << i << ' ';
+    cout << endl;
+    
+snippet     fastIO
+alias       ios_base
+    ios_base::sync_with_stdio(0);cin.tie(0);
     
 snippet     vector<vector<int>>
 abbr        vector<vector<int>>
