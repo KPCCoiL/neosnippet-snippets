@@ -8,10 +8,10 @@ options     head
         ${0}
         
 snippet     bfs
-abbr        while()...
+abbr        while(!q.empty()){}
 options     head
-        queue<${1}> que;
-        while(!que.empty()) {
-                auto new = que.front(); que.pop();
-                ${2:body}
+        queue<${1:type}> ${2:Queue};
+        while(!$2.empty()) {
+                auto new = $2.front(); $2.pop();
+                ${0:body}
         }
