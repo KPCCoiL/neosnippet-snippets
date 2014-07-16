@@ -178,7 +178,7 @@ abbr        priority_queue<>
     
 snippet     pque2
 abbr        priority_queue<T,vector<T>,greater<T>>
-    priority_queue<${1:type}, vector<$1>, greater<$1>>${0}
+    priority_queue<${1:type},vector<$1>,greater<$1>>${0}
 
 #C++11 features
 
@@ -222,7 +222,7 @@ abbr        memset()
     memset(${1},${2},sizeof $1);${0}
     
 snippet     debug
-    cout << "${1:var}" << " = " << $1 << endl;${0}
+    cout << "${1:var} = " << $1 << endl;${0}
     
 snippet     prArr
 abbr        for(:)cout<<i<<'';
@@ -231,8 +231,9 @@ abbr        for(:)cout<<i<<'';
     cout << endl;${0}
     
 snippet     fastIO
+options     head
 alias       ios_base
-    ios_base::sync_with_stdio(0);cin.tie(0);
+    ios_base::sync_with_stdio(0); cin.tie(0);
     
 snippet     vector<vector<int>>
 abbr        vector<vector<int>>
@@ -259,3 +260,8 @@ snippet     all
 options     word
 abbr        a.begin(),a.end()
     ${1:container}.begin(),$1.end()${0}
+
+snippet     rall
+options     word
+abbr        a.rbegin(),a.rend()
+    ${1:container}.rbegin(),$1.rend()${0}
