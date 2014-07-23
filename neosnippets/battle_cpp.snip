@@ -12,8 +12,8 @@ abbr        while(!q.empty()){}
 options     head
         queue<${1:type}> ${2:Queue};
         while(!$2.empty()) {
-                auto new = $2.front(); $2.pop();
-                ${0:body}
+                $1 now = $2.front(); $2.pop();
+                ${0}
         }
 
 snippet     unionFind
@@ -47,3 +47,4 @@ options     head
                         }
                         bool same(int x, int y) { return find(x) == find(y); }
         };
+        ${0}
