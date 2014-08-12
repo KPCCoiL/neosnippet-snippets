@@ -243,12 +243,17 @@ snippet     push_back
 options     word
 alias       pb
 abbr        push_back()
-    push_back(${1})
+    push_back(${1})${0}
     
 snippet     push
 options     word
 abbr        push()
-    push(${1})
+    push(${1})${0}
+    
+snipet      push_front
+options     word
+abbr        push_front()
+    push_front(${1})${0}
 
 snippet     all
 options     word
@@ -259,3 +264,18 @@ snippet     rall
 options     word
 abbr        a.rbegin(),a.rend()
     ${1:container}.rbegin(),$1.rend()${0}
+
+snippet     unique
+options     word
+abbr        erase(unique())
+    ${1}.erase($1.unique($1.begin(),$1.end()),$1.end())${0}
+    
+snippet     exist
+options     word
+abbr        find()!=end()
+    ${1}.find(${2}) != $1.end()${0}
+    
+snippet     unless
+options     head
+abbr        if(!())
+    if(!(${1})) ${0}
