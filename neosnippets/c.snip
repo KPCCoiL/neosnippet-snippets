@@ -21,7 +21,7 @@ abbr        for (i;i<n;i++)
     
 snippet     for_reverse
 abbr	    for (i;i>=n;i--)
-    for (auto ${1} = ${2]; $1 >= ${3}; $1--) ${0:TARGET}
+    for (auto ${1} = ${2}; $1 >= ${3}; $1--) ${0:TARGET}
 
 snippet     for_iterator
 abbr        for (v=r.begin();...)
@@ -150,5 +150,6 @@ abbr fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
 
 snippet long long
+options word
 alias ll
     long long
