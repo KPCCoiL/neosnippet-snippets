@@ -39,6 +39,11 @@ snippet	    if
 abbr	    if then else
 	if ${1} then ${2} else ${0}
 	
-snippet     spilitRead
+snippet     splitRead
+options	    word
 abbr 	    map read.words <$> getLine
 	map read . words <$> getLine
+
+snippet     multiGet
+abbr 	    replicateM n input
+	replicateM ${1:line} ${2:input}
