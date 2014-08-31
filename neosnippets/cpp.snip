@@ -5,11 +5,11 @@ include battle_cpp.snip
 # #include <...>
 snippet inc
 alias   #inc, #include
-    #include <${1:iostream}>${0}
+    #include <${1:iostream}>
 # #include "..."
 snippet inc2
 alias   #inc2, #include2
-    #include "${1}"${0}
+    #include "${1}"
     
 snippet incall
     #include<bits/stdc++.h>
@@ -164,6 +164,11 @@ options     word
 abbr        bitset<>
     bitset<${1:size}>${0}
     
+snippet     pair
+options     word
+abbr        pair<>
+    pair<${1:type1},${2:type2}>${0}
+    
 snippet     priority_queue
 options     word
 alias       pque
@@ -258,12 +263,12 @@ abbr        push_front()
 snippet     all
 options     word
 abbr        a.begin(),a.end()
-    ${1:container}.begin(),$1.end()${0}
+    begin(${1:container}),end($1)${0}
 
 snippet     rall
 options     word
 abbr        a.rbegin(),a.rend()
-    ${1:container}.rbegin(),$1.rend()${0}
+    rbegin(${1:container}),rend($1)${0}
 
 snippet     unique
 options     word
@@ -279,3 +284,7 @@ snippet     unless
 options     head
 abbr        if(!())
     if(!(${1})) ${0}
+
+snippet     inrange
+options     word
+abbr        ${1} >= 0 && $1 < ${2} && ${3} >= 0 && $3 < ${4}
