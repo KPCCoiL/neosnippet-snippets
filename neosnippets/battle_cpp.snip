@@ -1,4 +1,4 @@
-snippet     warshalFloyd
+snippet     warshallFloyd
 abbr        for()for()for()d[][]=min()
 options     head
         for(int k = 0; k < ${1:Vertex}; k++)
@@ -48,3 +48,11 @@ options     head
                         bool same(int x, int y) { return find(x) == find(y); }
         };
         ${0}
+
+snippet     montecalro
+abbr        start;while(now<time){}
+options     head
+        auto start = chrono::system_clock::now();
+        while (chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now()-start).count() < ${1:TimeLimit}) {
+                ${0}
+        }
