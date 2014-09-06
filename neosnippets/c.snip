@@ -6,12 +6,10 @@ snippet else
     else ${0:TARGET}
 
 snippet elseif
-    else if (${1:#:condition}) {
-        ${0:TARGET}
-    }
+    else if (${1:#:condition}) ${0:TARGET}
 
 snippet     ifelse
-abbr        if () {} else {}
+abbr        if () else
     if (${1:#:condition}) ${2:TARGET}
     else ${3}
 
@@ -23,15 +21,17 @@ snippet     for_reverse
 abbr	    for (i;i>=n;i--)
     for (auto ${1} = ${2}; $1 >= ${3}; $1--) ${0:TARGET}
 
-snippet     for_iterator
-abbr        for (v=r.begin();...)
-    for (auto ${1} = ${2}.begin(); $1 != $2.end(); ++$1) ${0:TARGET}
+snippet     for_iter
+abbr        for (i=begin();...)
+    for (auto ${1} = begin(${2}); $1 != end($2); ++$1) ${0:TARGET}
+    
+snippet	    for_iter_reverse
+abbr	    for (i=rbegin();...)
+    for (auto ${1} = rbegin(${2}); $1 != rend($2); ++$1) ${0:TARGET}
 
 snippet     while
-abbr        while () {}
-    while (${1:#:condition}) {
-        ${0:TARGET}
-    }
+abbr        while ()
+    while (${1:#:condition}) ${0:TARGET}
 
 snippet     do_while
 alias       do
@@ -72,13 +72,6 @@ abbr        enum {}
         ${0:TARGET}
     };
 
-# hard-tab is necessary; C indent doesn't support this.
-snippet main
-	int main(${1:#:param}) {
-		${0:TARGET}
-		return 0;
-	}
-
 # #include <...>
 snippet inc
 alias   #inc, #include
@@ -92,7 +85,7 @@ snippet ifndef
 alias   #ifndef
 abbr #ifndef ... #define ... #endif
     #ifndef $1
-    #define ${1:#:SYMBOL}
+    # define ${1:#:SYMBOL}
     #endif${0}
 
 snippet def
@@ -109,7 +102,7 @@ alias	#if
 snippet once
 abbr include-guard
     #ifndef ${1:SYMBOL}
-        #define $1
+    # define $1
 
         ${0:TARGET}
     #endif /* end of include guard */
@@ -149,7 +142,7 @@ snippet fgets
 abbr fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
 
-snippet long long
+snippet ll
 options word
-alias ll
+abbr long long
     long long
