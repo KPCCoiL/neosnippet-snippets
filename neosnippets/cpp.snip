@@ -273,12 +273,12 @@ abbr        a.rbegin(),a.rend()
 snippet     unique
 options     word
 abbr        erase(unique())
-    ${1}.erase($1.unique($1.begin(),$1.end()),$1.end())${0}
+    ${1}.erase($1.unique(begin($1),end($1)),end($1))${0}
     
 snippet     exist
 options     word
 abbr        find()!=end()
-    ${1}.find(${2}) != $1.end()${0}
+    ${1}.find(${2}) != end($1)${0}
     
 snippet     unless
 options     head
