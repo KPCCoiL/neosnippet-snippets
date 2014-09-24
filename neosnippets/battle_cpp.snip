@@ -1,5 +1,5 @@
 snippet     warshallFloyd
-abbr        for()for()for()d[][]=min()
+abbr        for()for()for()d[][]=min();
 options     head
         for(int k = 0; k < ${1:Vertex}; k++)
                 for(int i = 0; i < $1; i++)
@@ -56,3 +56,18 @@ options     head
         while (chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now()-start).count() < ${1:TimeLimit}) {
                 ${0}
         }
+
+snippet     dijkstraLoop
+abbr        while(){for()if()v;for()d[][]=min();}
+options     head
+        vector<bool> used(${1:Vectex},false);
+	while (true) {
+		int v = -1;
+		for (int i = 0; i < $1; i++)
+			if (!used[i] && (v == -1 || ${2:Distance}[i] < $2[v]))
+				v = i;
+		if (v == -1) break;
+		used[v] = true;
+		for (int i = 0; i < $1; i++)
+			$2[i] = min($2[i], $2[v]+${3:Cost}[v][i]);
+	}
