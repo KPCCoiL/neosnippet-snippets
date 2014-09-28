@@ -67,6 +67,7 @@ options     head
 		for (int i = 0; i < $1; i++)
 			$2[i] = min($2[i], $2[v]+${3:Cost}[v][i]);
 	}
+	${0}
 	
 snippet     edgeComp
 abbr        struct edge{operator<(){}};
@@ -77,6 +78,7 @@ options     head
                         return this->cost < e.cost;
                 }
         };
+        ${0}
 
 snippet     kruskal
 abbr        sort()for(){if(!same())unite()}
@@ -90,3 +92,4 @@ options     head
 			$3 += i.cost;
 		}
 	}
+	${0}
