@@ -18,18 +18,15 @@ options     head
 
 snippet     unionFind
 alias       ufind
-abbr        union_find{}
+abbr        class union_find{}
 options     head
         class union_find {
                 vector<int> rank, par;
                 public:
-                        union_find(int n) {
-                                rank.resize(n);
+                        union_find(int n) : rank(n,1) {
                                 par.resize(n);
-                                for (int i = 0; i < n; i++) {
-                                        rank[i] = 1;
-                                        par[i] = i;
-                                }
+                                for (int i = 0; i < n; i++)
+                                	par[i] = i;
                         }
                         int find(int x) {
                                 if(par[x] == x) return x;
@@ -70,4 +67,17 @@ options     head
 		used[v] = true;
 		for (int i = 0; i < $1; i++)
 			$2[i] = min($2[i], $2[v]+${3:Cost}[v][i]);
+	}
+
+snippet     kruskal
+abbr        sort()for(){if(!same())unite()}
+options     head
+	sort(begin(${1:Edges}),end($1));
+	union_find uf(${2:Vertex});
+	int ${3:Result} = 0;
+	for (edge& i : $1) {
+		if (!uf.same(i.u, i.v)) {
+			uf.unite(i.u, i.v);
+			$3 += i.cost;
+		}
 	}
