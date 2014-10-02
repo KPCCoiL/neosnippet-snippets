@@ -48,15 +48,16 @@ options     head
 snippet     montecalro
 abbr        start;while(now<time){}
 options     head
-        auto start = chrono::system_clock::now();
-        while (chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now()-start).count() < ${1:TimeLimit}) {
+	using namespace chrono;
+        auto start = system_clock::now();
+        while (duration_cast<milliseconds>(system_clock::now()-start).count() < ${1:TimeLimit}) {
                 ${0}
         }
 
 snippet     dijkLoop
 abbr        while(){for()if()v;for()d[][]=min();}
 options     head
-        vector<bool> used(${1:Vectex},false);
+	vector<bool> used(${1:Vectex},false);
 	while (true) {
 		int v = -1;
 		for (int i = 0; i < $1; i++)
@@ -72,13 +73,13 @@ options     head
 snippet     edgeComp
 abbr        struct edge{operator<(){}};
 options     head
-        struct edge {
-                int u,v,cost;
-                bool operator< (edge const& e) {
-                        return this->cost < e.cost;
-                }
-        };
-        ${0}
+	struct edge {
+		int u,v,cost;
+		bool operator< (edge const& e) {
+			return this->cost < e.cost;
+		}
+	};
+	${0}
 
 snippet     kruskal
 abbr        sort()for(){if(!same())unite()}
