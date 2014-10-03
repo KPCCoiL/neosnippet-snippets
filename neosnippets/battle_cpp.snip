@@ -4,7 +4,7 @@ options     head
         for(int k = 0; k < ${1:Vertex}; k++)
                 for(int i = 0; i < $1; i++)
                         for(int j = 0; j < $1; j++)
-                                ${2:Distance}[i][j] = min($2[i][j],$2[i][k]+$2[k][j]);
+                               ${2:Distance}[i][j] = min($2[i][j],$2[i][k]+$2[k][j]);
         ${0}
         
 snippet     bfs
@@ -48,7 +48,7 @@ options     head
 snippet     montecalro
 abbr        start;while(now<time){}
 options     head
-	using namespace chrono;
+        using namespace chrono;
         auto start = system_clock::now();
         while (duration_cast<milliseconds>(system_clock::now()-start).count() < ${1:TimeLimit}) {
                 ${0}
@@ -57,40 +57,40 @@ options     head
 snippet     dijkLoop
 abbr        while(){for()if()v;for()d[][]=min();}
 options     head
-	vector<bool> used(${1:Vectex},false);
-	while (true) {
-		int v = -1;
-		for (int i = 0; i < $1; i++)
-			if (!used[i] && (v == -1 || ${2:Distance}[i] < $2[v]))
+        vector<bool> used(${1:Vectex},false);
+        while (true) {
+                int v = -1;
+                for (int i = 0; i < $1; i++)
+                        if (!used[i] && (v == -1 || ${2:Distance}[i] < $2[v]))
 				v = i;
-		if (v == -1) break;
-		used[v] = true;
-		for (int i = 0; i < $1; i++)
-			$2[i] = min($2[i], $2[v]+${3:Cost}[v][i]);
-	}
-	${0}
+                if (v == -1) break;
+                used[v] = true;
+                for (int i = 0; i < $1; i++)
+                        $2[i] = min($2[i], $2[v]+${3:Cost}[v][i]);
+        }
+        ${0}
 	
 snippet     edgeComp
 abbr        struct edge{operator<(){}};
 options     head
-	struct edge {
-		int u,v,cost;
-		bool operator< (edge const& e) {
-			return this->cost < e.cost;
-		}
-	};
-	${0}
+        struct edge {
+                int u,v,cost;
+                bool operator< (edge const& e) {
+                        return this->cost < e.cost;
+                }
+        };
+        ${0}
 
 snippet     kruskal
 abbr        sort()for(){if(!same())unite()}
 options     head
-	sort(begin(${1:Edges}),end($1));
-	union_find uf(${2:Vertex});
-	int ${3:Result} = 0;
-	for (edge& i : $1) {
-		if (!uf.same(i.u, i.v)) {
-			uf.unite(i.u, i.v);
-			$3 += i.cost;
-		}
-	}
-	${0}
+        sort(begin(${1:Edges}),end($1));
+        union_find uf(${2:Vertex});
+        int ${3:Result} = 0;
+        for (edge& i : $1) {
+                if (!uf.same(i.u, i.v)) {
+                        uf.unite(i.u, i.v);
+                        $3 += i.cost;
+                }
+        }
+        ${0}
