@@ -30,11 +30,10 @@ abbr        class {}
     class ${1:#:name} {
         ${2}
     public:
-        $1(${3});
+        $1(${3}) ${4}{
+            ${0:TARGET}
+        }
     };
-    $1::$1($3) {
-        ${0:TARGET}
-    }
 
 snippet     class-without-constructor
 abbr        class {}
@@ -287,4 +286,5 @@ abbr        if(!())
 
 snippet     inrange
 options     word
-abbr        ${1} >= 0 && $1 < ${2} && ${3} >= 0 && $3 < ${4}
+abbr        x>=0&&x<N&&y>=0&&y<M
+    ${1} >= 0 && $1 < ${2} && ${3} >= 0 && $3 < ${4}
