@@ -94,3 +94,39 @@ options     head
                 }
         }
         ${0}
+
+snippet     dijkQueue
+abbr        que.emp();while(){pop();for()d[]=min();}
+options     head
+        ${1:Distance}[${2:Start}] = 0;
+        using pii = pair<int,int>;
+        priority_queue<pii,vector<pii>,greater<pii>> que;
+        que.emplace(0,$2);
+        while (!que.empty()) {
+                auto now = que.top(); que.pop();
+                int v = now.second;
+                if ($1[v] < now.first) continue;
+                for (auto& i : ${3:Edges}[i]) {
+                        if ($1[i.to] > $1[v]+i.cost) {
+                                $1[i.to] = $1[v]+i.cost;
+                                que.emplace($1[i.to], $1.to);
+                        }
+                }
+        }
+        ${0}
+        
+snippet     bellmanFord
+abbr        while(){for()d[]=min();if(!update)break;}
+options     head
+        ${1:Distance}[${2:Start}] = 0;
+        while (true) {
+                bool update = false;
+                for (auto& i : ${3:Edges}) {
+                        if ($1[i.from] != INF && $1[i.to] > $1[i.from]+i.cost) {
+                                $1[i.to] = $1[i.from]+i.cost;
+                                update = true;
+                        }
+                }
+                if (!update) break;
+        }
+        ${0}
