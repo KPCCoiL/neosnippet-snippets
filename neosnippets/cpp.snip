@@ -207,6 +207,7 @@ abbr        tuple<>
    
 snippet     emplace
 options     word
+alias       emp
     emplace(${1})${0}
     
 snippet     emplace_back
@@ -233,11 +234,11 @@ options     head
 alias       ios_base
     ios_base::sync_with_stdio(0); cin.tie(0);
     
-snippet     vector<vector<int>>
-abbr        vector<vector<int>>
+snippet     vector<vector<>>
+abbr        vector<vector<>>
 options     word
-alias       vvi
-    vector<vector<int>>
+alias       vv
+    vector<vector<${1:type}>>${0}
     
 snippet     dxdy
 abbr        dx[]={},dy[]={}
