@@ -78,6 +78,7 @@ options     head
     } // namespace $1
 
 snippet     static_cast
+options     word
 abbr        static_cast<>()
     static_cast<${1}>(${2})${0}
 
@@ -221,7 +222,7 @@ abbr        memset()
     memset(${1},${2},sizeof $1);${0}
     
 snippet     debug
-    cout << "${1:var} = " << $1 << endl;${0}
+    cerr << "${1:var} = " << $1 << endl;${0}
     
 snippet     prArr
 abbr        for(:)cout<<i<<'';
@@ -263,12 +264,12 @@ abbr        push_front()
 snippet     all
 options     word
 abbr        a.begin(),a.end()
-    begin(${1:container}),end($1)${0}
+    begin(${1:container}), end($1)${0}
 
 snippet     rall
 options     word
 abbr        a.rbegin(),a.rend()
-    rbegin(${1:container}),rend($1)${0}
+    rbegin(${1:container}), rend($1)${0}
 
 snippet     unique
 options     word
