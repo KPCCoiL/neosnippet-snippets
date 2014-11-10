@@ -18,7 +18,7 @@ options     head
 
 snippet     unionFind
 alias       ufind
-abbr        class union_find{}
+abbr        class union_find {}
 options     head
         class union_find {
                 vector<int> rank, par;
@@ -130,3 +130,48 @@ options     head
                 if (!update) break;
         }
         ${0}
+
+snippet     autoMods
+optoins	    head
+abbr	    class mods {}
+template<class T, T M>
+class mods {
+	T v;
+	public:
+	mods() {}
+	mods(T v) : v(v%M) {}
+	inline friend bool operator== (mods const& l, mods const& r) { return l.v == r.v; }
+	inline friend bool operator< (mods const& l, mods const& r) { return l.v < r.v; }
+	inline friend mods operator+ (mods const& l, mods const& r) { return mods(l.v+r.v); }
+	inline friend mods operator- (mods const& l, mods const& r) { return mods(l.v-r.v); }
+	inline friend mods operator* (mods const& l, mods const& r) { return mods(l.v*r.v); }
+	inline friend mods operator/ (mods const& l, mods const& r) { return mods(l.v/r.v); }	//XXX
+	inline friend mods operator+ (mods const& l, T const& r) { return mods(l.v+(r%M)); }
+	inline friend mods operator- (mods const& l, T const& r) { return mods(l.v-(r%M)); }
+	inline friend mods operator* (mods const& l, T const& r) { return mods(l.v*(r%M)); }
+	inline friend mods operator/ (mods const& l, T const& r) { return mods(l.v/(r%M)); }	//XXX
+	inline friend ostream& operator<< (ostream& os, mods const& r) { os << r.v; return os; }
+	inline friend istream& operator>> (istream& is, mods& r) { is >> r.v; r.v %= M; return is; }
+};
+
+snippet     segtree
+options	    head
+abbr	    class segtree {}
+class segtree {
+	vector<${1:Type}> data;
+	int n = 1;
+	public:
+	segtree(int n_) {
+		while (n < n_) n *= 2;
+		data.resize(2*n-1, ${2:Init});
+	}
+	void update(int k, $1 a) {
+		k += n-1;
+		data[k] = a;
+		while (k > 0) {
+			k = (k-1)/2;
+			data[k] = ${3:NextData};
+		}
+	}
+	${0}
+};
