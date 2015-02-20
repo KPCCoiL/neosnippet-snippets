@@ -21,7 +21,7 @@ alias       ufind
 abbr        class union_find {}
 options     head
         class union_find {
-                vector<int> rank, par;
+                        vector<int> rank, par;
                 public:
                         union_find(int n) : rank(n,1), par(n) {
                                 for (int i = 0; i < n; i++)
@@ -158,7 +158,7 @@ snippet     segtree
 options	    head
 abbr	    class segtree {}
 class segtree {
-	vector<${1:Type}> data;
+		vector<${1:Type}> data;
 	int n = 1;
 	public:
 	segtree(int n_) {
@@ -175,3 +175,29 @@ class segtree {
 	}
 	${0}
 };
+
+snippet	 BIT
+abbr		class BIT {}
+alias	   RSQ
+options	 head
+	class BIT {
+			vector<int> dat;
+			int const N;
+		public:
+			BIT(int N) : N(N), dat(N+1, 0) {}
+			void add(int k, int a) {
+				while (k <= N) {
+					dat[k] += a;
+					k += k & -k;
+				}
+			}
+			int sum(int k) {
+				int res = 0;
+				while (k >= 1) {
+					res += dat[k];
+					k -= k & -k;
+				}
+				return res;
+			}
+	};
+	${0}
