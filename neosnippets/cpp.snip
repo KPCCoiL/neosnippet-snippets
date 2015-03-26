@@ -12,11 +12,11 @@ alias   #inc2, #include2
     #include "${1}"
     
 snippet incall
-    #include<bits/stdc++.h>
+    #include <bits/stdc++.h>
 
 snippet     template
 abbr        template <>
-    template<${1:Param}>
+    template <${1:Param}>
     
 snippet     metafunc
 abbr        template<>struct{}
@@ -28,11 +28,11 @@ abbr        template<>struct{}
 snippet     class
 abbr        class {}
     class ${1:#:name} {
-        ${2}
-    public:
-        $1(${3}) ${4}{
-            ${0:TARGET}
-        }
+            ${2}
+        public:
+            $1(${3}) ${4}{
+                ${0:TARGET}
+            }
     };
 
 snippet     class-without-constructor
@@ -57,7 +57,7 @@ abbr        for (:)
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
-    [${1}](${2})${3}{ ${4:TARGET} }
+    [&](${1}) {${2:TARGET}}
 
 # scoped enumeration ( C++11 feature )
 snippet     enum_scoped
@@ -67,7 +67,7 @@ abbr        enum struct {}
 # static assert ( C++11 feature )
 snippet     static_assert
 abbr        static_assert(,"")
-    static_assert( ${1}, "${2}" );${0}
+    static_assert(${1}, "${2}");${0}
 
 delete      namespace
 snippet     namespace
@@ -167,7 +167,7 @@ abbr        bitset<>
 snippet     pair
 options     word
 abbr        pair<>
-    pair<${1:type1},${2:type2}>${0}
+    pair<${1:type1}, ${2:type2}>${0}
     
 snippet     priority_queue
 options     word
@@ -177,7 +177,7 @@ abbr        priority_queue<>
     
 snippet     pque2
 abbr        priority_queue<T,vector<T>,greater<T>>
-    priority_queue<${1:type},vector<$1>,greater<$1>>${0}
+    priority_queue<${1:type}, vector<$1>, greater<$1>>${0}
 
 #C++11 features
 
@@ -185,7 +185,7 @@ snippet     unordered_map
 options     word
 alias       hash
 abbr        unordered_map<>
-    unordered_map<${1:type},${2:type}>${0}
+    unordered_map<${1:type}, ${2:type}>${0}
     
 snippet     unordered_set
 options     word
@@ -195,7 +195,7 @@ abbr        unordered_set<>
 snippet     array
 options     word
 abbr        array<>
-    array<${1:type},${2:size}>${0}
+    array<${1:type}, ${2:size}>${0}
     
 snippet     forward_list
 options     head
@@ -219,7 +219,7 @@ options     word
 
 snippet     memset
 abbr        memset()
-    memset(${1},${2},sizeof $1);${0}
+    memset(${1}, ${2}, sizeof $1);${0}
     
 snippet     debug
     cerr << "${1:var} = " << $1 << endl;${0}
@@ -243,7 +243,7 @@ alias       vv
     
 snippet     dxdy
 abbr        dx[]={},dy[]={}
-    constexpr int dx[]={0,-1,1,0},dy[]={1,0,0,-1};
+    constexpr int dx[]={0, -1, 1, 0}, dy[]={1, 0, 0, -1};
     
 snippet     push_back
 options     word
@@ -274,7 +274,7 @@ abbr        a.rbegin(),a.rend()
 snippet     unique
 options     word
 abbr        erase(unique())
-    ${1}.erase($1.unique(begin($1),end($1)),end($1))${0}
+    ${1}.erase($1.unique(begin($1), end($1)), end($1))${0}
     
 snippet     exist
 options     word
@@ -288,5 +288,5 @@ abbr        if(!())
 
 snippet     inrange
 options     word
-abbr        x>=0&&x<N&&y>=0&&y<M
-    ${1} >= 0 && $1 < ${2} && ${3} >= 0 && $3 < ${4}
+abbr        x>=0&&x<N
+    ${1} >= 0 && $1 < ${2}
